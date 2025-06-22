@@ -1,0 +1,39 @@
+{
+  "data": [
+    {
+      "img": "./src/assets/Frame (58).png",
+      "name": "Walnut MagSafe Stand",
+      "price": "$120",
+      "status": true,
+      "id": "1"
+    },
+    {
+      "name": "Walnut Laptop Riser",
+      "price": "$150",
+      "status": false,
+      "id": "2",
+      "img": "./src/assets/Frame (59).png"
+    },
+    {
+      "name": "Walnut iPad Stand",
+      "price": "$80",
+      "status": true,
+      "id": "3",
+      "img": "./src/assets/Frame (60).png"
+    },
+    {
+      "name": "Walnut Monitor Stand",
+      "price": "$100",
+      "status": false,
+      "id": "4",
+      "img": "./src/assets/Frame (61).png"
+    },
+    {
+      "name": "Walnut Monitor Stand",
+      "price": "$100",
+      "status": true,
+      "id": "5",
+      "img": "./src/assets/Frame (58).png"
+    }
+  ]
+}

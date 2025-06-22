@@ -1,0 +1,16 @@
+.container {
+    background-image : url('./assets/Rectangle (27).png');
+    background-size:cover;
+    height : 65vh;
+    background-position : center;
+    background-repeat : no-repeat;
+}
+
+.container1 {
+    background-image : url('./assets/Rectangle (22).png');
+    background-size:cover;
+    height : 65vh;
+    background-position : center;
+    background-repeat : no-repeat;
+}
+
