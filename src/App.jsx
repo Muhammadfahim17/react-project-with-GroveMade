@@ -157,8 +157,7 @@ const App = () => {
     }
   }
 
-  let [search,setSearch] = useState('')
-  let [select,setSelect] = useState('')
+  
 
   let [info,setInfo] = useState(null)
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
@@ -204,6 +203,33 @@ const App = () => {
     }
   }
 
+  let[status, setStatus] = useState('all')
+  
+
+  async function selectStatus() {
+    try {
+      if (status !== 'all') {
+        let response = await fetch(`${api}?status=${status === 'true' ? true : false}`)
+        let data = await response.json()
+        setData(data)
+      } else {
+        let response = await fetch(api)
+        let data = await response.json()
+        setData(data)
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  useEffect(() => {
+    selectStatus()
+  }, [status])
+
+  let [search,setSearch] = useState('')
+
+
+
 
 
   return (
@@ -236,11 +262,11 @@ const App = () => {
         onOk={addNewProducts}
         onCancel={handleCancel}
       >
-        <div>
+        <div className='flex flex-col items-center gap-[20px] mt-[35px]'>
         <Input value={inpImage} onChange={(e) => setInpImage(e.target.value)} placeholder="Image..." />
         <Input value={inpName} onChange={(e) => setInpName(e.target.value)} placeholder="Name..." />
         <Input value={inpPrice} onChange={(e) => setInpPrice(e.target.value)} placeholder="Price..." />
-        <select value={inpStatus} onChange={(e) => setInpStatus(e.target.value)} className='border'>
+        <select value={inpStatus} onChange={(e) => setInpStatus(e.target.value)} className='border px-[50px] py-[7px] font-bold rounded-xl'>
           <option value="true">Active</option>
           <option value="false">Inactive</option>
         </select>
@@ -255,11 +281,11 @@ const App = () => {
         onOk={editProducts}
         onCancel={handleEditCancel}
       >
-        <div>
+        <div className='flex flex-col items-center gap-[20px] mt-[35px]'>
         <Input value={inpEditImage} onChange={(e) => setInpEditImage(e.target.value)} placeholder="Image..." />
         <Input value={inpEditName} onChange={(e) => setInpEditName(e.target.value)} placeholder="Name..." />
         <Input value={inpEditPrice} onChange={(e) => setInpEditPrice(e.target.value)} placeholder="Price..." />
-        <select value={inpEditStatus} onChange={(e) => setInpEditStatus(e.target.value)} className='border'>
+        <select value={inpEditStatus} onChange={(e) => setInpEditStatus(e.target.value)} className='border px-[50px] py-[7px] font-bold rounded-xl'>
           <option value="true">Active</option>
           <option value="false">Inactive</option>
         </select>
@@ -313,7 +339,7 @@ const App = () => {
       <div className='w-[90%] m-auto flex flex-col items-center sm:flex-row sm:items-center sm:justify-between mb-[80px]'>
         <div className='flex flex-col gap-[15px] items-center sm:flex-row sm:items-center sm:gap-[50px]'>
         <input value={search} onChange={(e) => setSearch(e.target.value)} className='border px-[50px] py-[7px] rounded-xl font-bold sm:px-[70px]' type="text" placeholder='🔍 Search...' />
-        <select value={select} onChange={(e) => setSelect(e.target.value)} className='border  px-[20px] py-[7px] rounded-xl font-bold sm:px-[30px]'>
+        <select value={status} onChange={(e) => setStatus(e.target.value)} className='border  px-[20px] py-[7px] rounded-xl font-bold sm:px-[30px]'>
           <option value="all" key="">All</option>
           <option value="true" key="">Active</option>
           <option value="false" key="">Inactive</option>
@@ -325,7 +351,7 @@ const App = () => {
       </div>
 
       <div className='w-[90%] m-auto gap-[40px] flex items-center overflow-x-auto whitespace-nowrap scroll-smooth scrollbar-hide py-4 mb-[180px]'>
-        {data.map((e) => {
+        {data.filter((e) => e.name.toLowerCase().includes(search.toLowerCase())).map((e) => {
           return (
             <div key={e.id} className='min-w-[300px]  flex-shrink-0 flex flex-col gap-[15px]'>
               <img className='w-[310px] h-[430px]' src={e.img} alt="" />

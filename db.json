@@ -29,11 +29,11 @@
       "img": "./src/assets/Frame (61).png"
     },
     {
-      "name": "Walnut Monitor Stand",
-      "price": "$100",
+      "img": "./src/assets/Frame (58).png",
+      "name": "Walnut MagSafe Stand",
+      "price": "$120",
       "status": true,
-      "id": "5",
-      "img": "./src/assets/Frame (58).png"
+      "id": "5"
     }
   ]
 }
