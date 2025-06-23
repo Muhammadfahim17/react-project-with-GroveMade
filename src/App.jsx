@@ -430,7 +430,7 @@ const App = () => {
 
 
       <div className='bg-[#F9F9F9] h-[60vh] sm:h-[50vh] py-[25px]'>
-        <div className='flex w-[98%] m-auto justify-between p-[10px]'>
+        <div className='flex w-[98%] m-auto justify-between p-[10px] items-center'>
           <div className='w-[20%] flex flex-col gap-[15px] items-start'>
             <h3 className='text-[18px] font-[500]'>Shop</h3>
             <h3 className='text-[18px] font-[500]'>About</h3>
@@ -444,6 +444,7 @@ const App = () => {
             <h3 className='text-[20px] font-[500]'>Newsletter Signup</h3>
             <p className='text-[#A0A0A0] text-[17px] font-[500] border-b-1 pb-[70px] sm:pb-[100px]'>Sign up to our Newsletter to hear about new product releases, learn about our design process, and everything else going on behind the scenes at Grovemade.</p>
           </div>
+      <img className='hidden sm:block pb-[200px] ' src={image35} alt="" />
         </div>
       </div>
       <div className='hidden sm:flex gap-[15px] bg-[#F9F9F9] py-[20px] justify-end pr-[70px]'>
@@ -452,7 +453,6 @@ const App = () => {
         <p className='text-[#707A7F] text-[17px] font-[500]'>Privacy Policy</p>
         <p className='text-[black] text-[17px] font-[500]'>Site by Department</p>
       </div>
-      <img className='hidden sm:block absolute top-[1042%] left-[90%]' src={image35} alt="" />
 
     </div>
   )
